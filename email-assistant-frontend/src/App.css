@@ -1,0 +1,95 @@
+/* Background Blur */
+.glass-bg {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: url("https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(4px);
+}
+
+/* Main container */
+.glass-container {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 15px 40px rgba(0,0,0,0.25);
+}
+
+/* Header */
+.glass-title {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-shadow: 0px 0px 8px rgba(255,255,255,0.4);
+}
+
+/* Glass Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px;
+  margin: 25px 0;
+  border-radius: 16px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* Textareas */
+.glass-textarea .MuiOutlinedInput-root {
+  background: rgba(255,255,255,0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.glass-textarea .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255,255,255,0.4);
+}
+
+.glass-textarea .MuiInputBase-input {
+  color: white;
+}
+
+/* Select Dropdown */
+.glass-select .MuiOutlinedInput-root {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border-radius: 12px;
+}
+.glass-select label {
+  color: white !important;
+}
+.glass-select .MuiSvgIcon-root {
+  color: white;
+}
+
+/* Neon Glass Button */
+.glass-button {
+  background: linear-gradient(135deg, #00f2ff, #3b8dff);
+  padding: 12px 20px !important;
+  border-radius: 12px !important;
+  font-weight: bold !important;
+  color: white !important;
+  margin-top: 20px !important;
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 242, 255, 0.9);
+}
+
+/* Copy Button */
+.glass-copy {
+  color: white !important;
+  border-color: rgba(255,255,255,0.5) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 12px !important;
+}
+
+.glass-copy:hover {
+  background: rgba(255,255,255,0.25) !important;
+}

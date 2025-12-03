@@ -1,0 +1,24 @@
+.history-bg {
+  padding: 40px;
+  min-height: 100vh;
+  background: url("https://images.unsplash.com/photo-1517816428104-797678c7cf0c?auto=format&fit=crop&w=1700&q=80");
+  background-size: cover;
+}
+
+.history-title {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.history-list {
+  width: 80%;
+  margin: auto;
+}
+
+.history-card {
+  margin-top: 20px;
+  padding: 20px;
+  color: white;
+  line-height: 1.5;
+}

@@ -1,0 +1,242 @@
+/* ---------------------------------------------------
+   GLOBAL BACKGROUND + NO WHITE GAPS
+--------------------------------------------------- */
+.home-bg {
+  min-height: 100vh;
+  background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1700&q=80") no-repeat center/cover;
+  padding-top: 130px; /* leaves space for fixed navbar */
+  padding-bottom: 40px;
+  overflow-x: hidden;
+}
+
+/* ---------------------------------------------------
+   GLASS NAVBAR — FIXED + CENTERED (NO GAP)
+--------------------------------------------------- */
+.glass-nav {
+  width: 92%;
+  padding: 18px 35px;
+  border-radius: 18px;
+
+  position: fixed;   /* FIX: navbar stays at top */
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(18px);
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-size: 22px;
+  color: white;
+  font-weight: 700;
+}
+
+.nav-links a {
+  margin-left: 28px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: #00f2ff;
+}
+
+/* ---------------------------------------------------
+   HERO SECTION
+--------------------------------------------------- */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 85%;
+  margin: auto;
+  margin-top: 40px; /* reduced because navbar is fixed */
+  flex-wrap: wrap;
+}
+
+/* LEFT HERO CONTENT */
+.hero-left {
+  width: 48%;
+  min-width: 300px;
+  padding: 40px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+.hero-subtitle {
+  color: #e0e0e0;
+  margin: 18px 0 32px 0;
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+/* BUTTON */
+.hero-btn {
+  background: linear-gradient(135deg, #00f2ff, #3b8dff);
+  padding: 15px 35px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(0,242,255,0.5);
+  transition: 0.3s ease;
+  display: inline-block;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(0,242,255,0.9);
+}
+
+/* RIGHT HERO IMAGE */
+.hero-right {
+  width: 45%;
+  text-align: center;
+  min-width: 300px;
+}
+
+.hero-illustration {
+  width: 100%;
+  max-width: 420px;
+  animation: float 4s infinite ease-in-out;
+  filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ---------------------------------------------------
+   GLASS CARD (USED FOR SECTIONS)
+--------------------------------------------------- */
+.glass-card {
+  background: rgba(255,255,255,0.18);
+  border-radius: 18px;
+  padding: 25px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+/* ---------------------------------------------------
+   FEATURES GRID
+--------------------------------------------------- */
+.features-grid {
+  width: 85%;
+  margin: 70px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.feature {
+  width: 30%;
+  min-width: 260px;
+  text-align: center;
+  color: white;
+}
+
+.feature h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+/* ---------------------------------------------------
+   CTA BOX
+--------------------------------------------------- */
+.cta-container {
+  width: 85%;
+  margin: auto;
+  margin-top: 40px;
+  padding: 40px;
+  text-align: center;
+  color: white;
+}
+
+.cta-btn {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #00f2ff, #3b8dff);
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(0,242,255,0.6);
+  transition: 0.3s ease;
+  display: inline-block;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(0,242,255,0.9);
+}
+
+/* ---------------------------------------------------
+   FOOTER
+--------------------------------------------------- */
+.glass-footer {
+  text-align: center;
+  margin-top: 60px;
+  color: white;
+  opacity: 0.8;
+  font-size: 14px;
+  padding-bottom: 30px;
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE DESIGN
+--------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left, .hero-right {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .hero-title {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 600px) {
+  .glass-nav {
+    padding: 12px 20px;
+  }
+
+  .nav-links {
+    display: none; /* can enable hamburger menu later */
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-btn {
+    padding: 12px 22px;
+    font-size: 15px;
+  }
+}

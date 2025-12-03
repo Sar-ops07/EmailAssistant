@@ -1,0 +1,14 @@
+.about-bg {
+  min-height: 100vh;
+  padding: 40px;
+  background: url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1700&q=80");
+  background-size: cover;
+}
+
+.about-container {
+  width: 60%;
+  margin: auto;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}

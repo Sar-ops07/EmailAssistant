@@ -1,0 +1,89 @@
+.gen-bg {
+  padding: 40px;
+  background: url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1700&q=80");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.gen-container {
+  width: 70%;
+  margin: auto;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.gen-title {
+  color: white;
+  text-align: center;
+  margin-bottom: 25px;
+  text-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+/* TEXTAREA INPUT */
+.gen-input, .gen-output {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(15px);
+  outline: none;
+  resize: vertical;
+  font-size: 15px;
+}
+
+/* SELECT */
+.gen-select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: white;
+  backdrop-filter: blur(15px);
+}
+
+.gen-select option {
+  color: black;
+}
+
+/* BUTTON */
+.gen-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 25px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(135deg,#00f2ff,#3b8dff);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0,242,255,0.6);
+  transition: 0.3s ease;
+}
+
+.gen-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(0,242,255,0.9);
+}
+
+/* COPY BUTTON */
+.copy-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background: rgba(255,255,255,0.2);
+}

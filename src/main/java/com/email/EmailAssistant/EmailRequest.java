@@ -5,14 +5,26 @@ import lombok.Data;
 @Data
 public class EmailRequest {
     private String emailContent;
-    private String Tone;
+    private String tone;
 
-
-    public CharSequence getTone() {
-        return null;
+    public String getEmailContent() {
+        return emailContent;
     }
 
-    public char[] getEmailContent() {
-        return new char[0];
+    public void setEmailContent(String emailContent) {
+        this.emailContent = emailContent;
+    }
+
+    public String getTone() {
+        return tone;
+    }
+
+    public void setTone(String tone) {
+        this.tone = tone;
+    }
+
+    public EmailRequest(String emailContent, String tone) {
+        this.emailContent = emailContent;
+        this.tone = tone;
     }
 }

@@ -21,49 +21,47 @@ public class EmailGeneratorService {
     }
 
     public String generateEmailReply(EmailRequest emailRequest) {
-        // Build prompt from EmailRequest
         String prompt = buildPrompt(emailRequest);
 
-        // Prepare JSON request body
+        // escape quotes in prompt to avoid broken JSON
+        String safePrompt = prompt.replace("\"", "\\\"");
+
         String requestBody = String.format("""
                 {
                   "contents": [
                     {
                       "parts": [
-                        {
-                          "text": "%s"
-                        }
+                        { "text": "%s" }
                       ]
                     }
                   ]
                 }
-                """, prompt);
+                """, safePrompt);
 
-        String response;
         try {
-            // Send request to Gemini API
-            response = webClient.post()
+            String response = webClient.post()
                     .uri("v1beta/models/gemini-2.5-flash:generateContent")
                     .header("x-goog-api-key", apiKey)
                     .header("Content-Type", "application/json")
                     .bodyValue(requestBody)
                     .retrieve()
-                    .onStatus(status -> !status.is2xxSuccessful(),
-                            clientResponse -> clientResponse.bodyToMono(String.class)
-                                    .map(body -> new RuntimeException("Gemini API Error: " + body)))
                     .bodyToMono(String.class)
                     .block();
-        } catch (WebClientResponseException e) {
-            return "Gemini API request failed: " + e.getResponseBodyAsString();
-        } catch (Exception e) {
-            return "Error generating email: " + e.getMessage();
-        }
 
-        // Extract text content from Gemini API response
-        return extractResponseContent(response);
+            return extractResponseContent(response);
+
+        } catch (WebClientResponseException e) {
+            return "Gemini API Error: " + e.getResponseBodyAsString();
+        } catch (Exception e) {
+            return "Unexpected Error: " + e.getMessage();
+        }
     }
 
     private String extractResponseContent(String response) {
+        if (response == null || response.isBlank()) {
+            return "No response from model";
+        }
+
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response);
@@ -73,6 +71,7 @@ public class EmailGeneratorService {
                     .path("parts")
                     .path(0)
                     .path("text");
+
             if (textNode.isMissingNode() || textNode.isNull()) {
                 return "No content returned from Gemini API";
             }
@@ -83,12 +82,16 @@ public class EmailGeneratorService {
     }
 
     private String buildPrompt(EmailRequest emailRequest) {
-        StringBuilder prompt = new StringBuilder();
-        prompt.append("Generate a professional email reply for the following email. ");
+        StringBuilder sb = new StringBuilder();
+        sb.append("Generate a professional email reply. ");
+
         if (emailRequest.getTone() != null && !emailRequest.getTone().isEmpty()) {
-            prompt.append("Use a ").append(emailRequest.getTone()).append(" tone. ");
+            sb.append("Use a ").append(emailRequest.getTone()).append(" tone. ");
         }
-        prompt.append("Original Email: \n").append(emailRequest.getEmailContent());
-        return prompt.toString();
+
+        sb.append("Original Email:\n")
+                .append(emailRequest.getEmailContent() == null ? "" : emailRequest.getEmailContent());
+
+        return sb.toString();
     }
 }
